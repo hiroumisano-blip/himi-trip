@@ -48,7 +48,7 @@ h1 span{display:block;font-family:ui-sans-serif,system-ui,sans-serif;font-size:.
 .photo-slot{border:2px dashed #b7c7b5;background:linear-gradient(135deg,#f5f4e9,#eaf1e6);border-radius:5px;min-height:110px;display:flex;align-items:center;justify-content:center;text-align:center;color:#61775a;padding:12px;position:relative;overflow:hidden}
 .photo-slot:before{content:"";position:absolute;inset:0;background:linear-gradient(155deg,transparent 50%,rgba(105,136,91,.12) 50%);pointer-events:none}
 .photo-slot img{position:absolute;inset:0;z-index:2;width:100%;height:100%;object-fit:cover;background:#eef1e8}
-.photo-slot:has(img) small{position:absolute;z-index:3}
+.photo-slot:has(img) .slot-inner{display:none}
 .hero-photo{position:absolute;inset:0;z-index:-1;width:100%;height:100%;object-fit:cover;border-radius:0 0 18px 18px}
 .hero-photo+.hero-veil{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(255,253,247,.86) 0%,rgba(255,253,247,.55) 45%,rgba(255,253,247,.25) 100%);border-radius:0 0 18px 18px}
 .credits{font-size:.7rem;color:var(--muted);margin-top:6px}
