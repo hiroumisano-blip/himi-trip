@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#fffdf7">
+<title>A Taste of Japan — Himi Trip | Hiro & Sumika</title>
+<style>
+:root{
+  --paper:#fffdf7;--ink:#18354a;--navy:#163b54;--blue:#6daec5;--pale-blue:#dceff3;
+  --green:#66834d;--pale-green:#e8efdc;--gold:#b99449;--line:#d9dfd5;--muted:#617078;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6}
+button,a{font:inherit}
+a{color:inherit}
+.langbar{position:sticky;top:0;z-index:10;display:flex;justify-content:flex-end;gap:8px;padding:10px max(16px,calc((100% - 1000px)/2));background:rgba(255,253,247,.94);backdrop-filter:blur(8px);border-bottom:1px solid #e8e6dc}
+.langbar button{border:1px solid #b7c6c4;border-radius:999px;background:transparent;color:var(--navy);padding:7px 15px;font-weight:700;cursor:pointer}
+.langbar button.active{background:var(--navy);color:white;border-color:var(--navy)}
+.poster{max-width:1000px;margin:0 auto;padding:0 20px 36px;overflow-x:clip}
+.hero{position:relative;isolation:isolate;min-height:390px;padding:38px 28px 26px;display:flex;flex-direction:column;justify-content:space-between}
+.hero-art{position:absolute;inset:0;z-index:-1;width:100%;height:100%;opacity:.98}
+.kicker{font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--green);margin:0 0 10px}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.4rem,7vw,4.8rem);line-height:.98;letter-spacing:-.045em;margin:0;max-width:640px;color:var(--navy)}
+h1 span{display:block;font-family:ui-sans-serif,system-ui,sans-serif;font-size:.45em;letter-spacing:.08em;margin-top:12px;font-weight:750}
+.hero-sub{font-size:1.08rem;max-width:440px;margin:18px 0 14px}
+.date-ribbon{display:inline-flex;align-self:flex-start;gap:10px;align-items:center;background:var(--navy);color:white;padding:10px 17px;border-radius:4px 18px 4px 18px;font-weight:800;box-shadow:4px 4px 0 rgba(185,148,73,.4)}
+.date-ribbon strong{color:#f4d993}
+.update-note{margin:16px 0 0;font-size:.88rem;max-width:470px;background:rgba(255,253,247,.88);padding:9px 12px;border-left:3px solid var(--gold)}
+.section-heading{display:flex;align-items:center;gap:13px;margin:24px 0 16px}
+.day-number{display:grid;place-items:center;flex:0 0 62px;height:62px;border-radius:50%;background:var(--pale-green);color:var(--green);font-size:1.65rem;font-weight:900;border:1px solid #d4dfc7}
+.day-two .day-number{background:var(--pale-blue);color:#327d99;border-color:#c4e1e9}
+.section-heading h2{margin:0;font-size:clamp(1.45rem,4vw,2rem);line-height:1.15;color:var(--navy)}
+.section-heading p{margin:4px 0 0;color:var(--muted);font-size:.92rem}
+.day-banner{height:12px;border-radius:100%;background:linear-gradient(90deg,var(--pale-green),transparent);margin:0 0 14px}
+.day-two .day-banner{background:linear-gradient(90deg,var(--pale-blue),transparent)}
+.timeline{position:relative;margin:0 0 24px 28px;padding:0 0 0 25px;border-left:2px solid #9bb27d}
+.day-two .timeline{border-color:#85bdcf}
+.stop{position:relative;display:grid;grid-template-columns:1fr;gap:12px;padding:0 0 20px;margin:0 0 17px;border-bottom:1px dashed var(--line)}
+.stop:last-child{border-bottom:0;margin-bottom:0}
+.stop:before{content:"";position:absolute;width:12px;height:12px;border-radius:50%;background:var(--green);left:-32px;top:5px;border:3px solid var(--paper)}
+.day-two .stop:before{background:#4596b1}
+.stop-main{display:flex;gap:12px;align-items:flex-start}
+.emoji{font-size:1.55rem;line-height:1.2;flex:0 0 35px;text-align:center}
+.stop h3{margin:0 0 3px;font-size:1.05rem;color:var(--navy)}
+.stop p{margin:0;color:#465960;font-size:.94rem}
+.time{display:inline-block;color:var(--green);font-size:.79rem;font-weight:850;letter-spacing:.04em;margin-bottom:3px}
+.day-two .time{color:#327d99}
+.photo-slot{border:2px dashed #b7c7b5;background:linear-gradient(135deg,#f5f4e9,#eaf1e6);border-radius:5px;min-height:110px;display:flex;align-items:center;justify-content:center;text-align:center;color:#61775a;padding:12px;position:relative;overflow:hidden}
+.photo-slot:before{content:"";position:absolute;inset:0;background:linear-gradient(155deg,transparent 50%,rgba(105,136,91,.12) 50%);pointer-events:none}
+.photo-slot img{position:absolute;inset:0;z-index:2;width:100%;height:100%;object-fit:cover;background:#eef1e8}
+.photo-slot:has(img) small{position:absolute;z-index:3}
+.hero-photo{position:absolute;inset:0;z-index:-1;width:100%;height:100%;object-fit:cover;border-radius:0 0 18px 18px}
+.hero-photo+.hero-veil{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(255,253,247,.86) 0%,rgba(255,253,247,.55) 45%,rgba(255,253,247,.25) 100%);border-radius:0 0 18px 18px}
+.credits{font-size:.7rem;color:var(--muted);margin-top:6px}
+.credits a{color:var(--muted)}
+.photo-slot .slot-inner{position:relative}
+.photo-slot .slot-icon{font-size:1.65rem;display:block}
+.photo-slot b{display:block;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}
+.photo-slot small{display:block;font-size:.75rem}
+.day-two .photo-slot{background:linear-gradient(135deg,#f1f7f6,#e1f0f3);border-color:#9fcbd7;color:#3f8194}
+.photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0 26px}
+.photo-grid .photo-slot{min-height:125px}
+.info-grid{display:grid;grid-template-columns:1fr;gap:14px;margin:18px 0 28px}
+.info-card{border:1px solid #e0e2d7;background:#fffefa;border-radius:10px;padding:17px 17px 16px;box-shadow:0 4px 0 rgba(22,59,84,.035)}
+.info-card h3{font-size:1.1rem;color:var(--navy);margin:0 0 9px;display:flex;gap:8px;align-items:center}
+.info-card p{margin:0 0 8px;font-size:.93rem}
+.info-card ul{padding-left:1.2rem;margin:0;font-size:.93rem}
+.info-card li{margin:.35rem 0}
+.cost-list{list-style:none;padding:0!important}
+.cost-list li{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding:7px 0}
+.cost-list li:last-child{border-bottom:0}
+.cost-list strong{white-space:nowrap}
+.packing{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.pack-item{display:flex;gap:8px;align-items:flex-start;background:#f6f6ed;border-radius:7px;padding:10px;font-size:.9rem}
+.pack-item span:first-child{font-size:1.2rem}
+.luggage{border:1px solid #e1d5b6;background:#fff9e9}
+.cta{display:block;text-align:center;background:var(--navy);color:#fff;text-decoration:none;padding:14px 18px;border-radius:8px;font-weight:850;margin:13px 0}
+.cta:hover{background:#24536e}
+.store-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.store-links a{border:1px solid #b7c6c4;border-radius:7px;text-decoration:none;padding:8px 11px;font-size:.87rem;font-weight:700}
+.favor-list{padding-left:1.25rem;margin:8px 0}
+.favor-list li{margin:8px 0}
+.footer{position:relative;text-align:center;padding:38px 20px 20px;margin-top:18px;overflow:hidden}
+.footer-art{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+.footer-quote{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.3rem,4vw,2rem);line-height:1.25;max-width:620px;margin:0 auto 13px;color:var(--navy)}
+.footer-names{font-weight:900;letter-spacing:.12em}
+.updated{font-size:.75rem;color:var(--muted);margin-top:18px}
+.note{font-size:.82rem;color:var(--muted)}
+[hidden]{display:none!important}
+.tabs{position:sticky;top:53px;z-index:9;display:flex;flex-wrap:wrap;justify-content:center;gap:6px;padding:10px 0;margin:0 0 4px;background:rgba(255,253,247,.96);backdrop-filter:blur(8px);border-bottom:1px solid #e8e6dc}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:0 0 auto;border:1px solid #d4dccf;border-radius:999px;background:#fffefa;color:var(--navy);padding:8px 14px;font-size:.9rem;font-weight:750;cursor:pointer;white-space:nowrap}
+.tabs button.active{background:var(--green);border-color:var(--green);color:#fff}
+.tab-panel{display:none;scroll-margin-top:160px}
+@media(max-width:520px){.tabs{gap:5px}.tabs button{padding:6px 11px;font-size:.84rem}}
+.tab-panel.active{display:block}
+@media(min-width:700px){
+ .poster{padding:0 34px 45px}
+ .hero{min-height:430px;padding:48px 38px 30px}
+ .hero-sub{font-size:1.18rem}
+ .timeline{margin-left:35px;padding-left:30px}
+ .stop{grid-template-columns:minmax(0,1.3fr) minmax(190px,.7fr);align-items:center;gap:22px;padding-bottom:20px}
+ .stop:before{left:-37px}
+ .photo-slot{min-height:130px}
+ .info-grid{grid-template-columns:1fr 1fr}
+ .info-card.wide{grid-column:1/-1}
+ .packing{grid-template-columns:repeat(4,1fr)}
+ .photo-grid{grid-template-columns:repeat(4,1fr)}
+ .photo-grid .photo-slot{min-height:140px}
+}
+@media(max-width:390px){
+ .poster{padding-left:14px;padding-right:14px}
+ .hero{padding:28px 12px 20px;min-height:350px}
+ .hero-sub{font-size:.98rem;max-width:290px}
+ .date-ribbon{font-size:.85rem;padding:9px 12px}
+ .timeline{margin-left:19px;padding-left:20px}
+ .stop:before{left:-27px}
+ .photo-grid{gap:8px}
+ .photo-grid .photo-slot{min-height:112px;padding:8px}
+}
+@media print{
+ @page{size:A4;margin:12mm}
+ body{background:white!important;color:#1c2d35;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .langbar,.tabs{display:none!important}
+ .tab-panel{display:block!important}
+ .poster{max-width:none;padding:0}
+ .hero{min-height:270px;padding:20px 18px}
+ .hero-art{opacity:.6}
+ .section-heading{break-after:avoid}
+ .stop,.info-card,.photo-slot{break-inside:avoid}
+ .stop{grid-template-columns:minmax(0,1.2fr) minmax(140px,.8fr)}
+ .info-grid{grid-template-columns:1fr 1fr}
+ .cta{color:white!important}
+ a{text-decoration:none}
+ .footer{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<nav class="langbar" aria-label="Language selector">
+  <button id="enBtn" class="active" type="button" aria-pressed="true">English</button>
+  <button id="jaBtn" type="button" aria-pressed="false">日本語</button>
+</nav>
+<main class="poster">
+<header class="hero">
+  <svg class="hero-art" viewBox="0 0 1000 430" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustrated mountains, sea and traditional houses">
+    <rect width="1000" height="430" fill="#fffdf7"/>
+    <circle cx="820" cy="80" r="43" fill="#f2dfaa" opacity=".8"/>
+    <path d="M0 250 Q120 180 230 230 T450 210 T700 190 T1000 220 L1000 430 L0 430Z" fill="#e7f0df"/>
+    <path d="M300 280 L470 80 L590 220 L710 55 L900 260 L1000 190 L1000 430 L300 430Z" fill="#c8ddca"/>
+    <path d="M450 180 L470 80 L510 130 L490 123 L475 145 L462 136Z" fill="#fffdf7"/>
+    <path d="M640 230 L710 55 L770 160 L735 145 L715 173 L690 153Z" fill="#fffdf7"/>
+    <path d="M0 300 Q170 260 310 300 T620 290 T1000 280 L1000 430 L0 430Z" fill="#dceff3"/>
+    <path d="M0 345 Q150 320 300 345 T600 340 T1000 330" fill="none" stroke="#8ec6d4" stroke-width="4" opacity=".8"/>
+    <g stroke="#66834d" stroke-width="3" fill="#829d69">
+      <path d="M770 285 L800 230 L830 285Z"/><path d="M800 310 L830 245 L860 310Z"/><path d="M845 295 L870 242 L895 295Z"/>
+      <path d="M910 300 L935 250 L960 300Z"/><path d="M940 320 L966 266 L992 320Z"/>
+    </g>
+    <g transform="translate(600 225)" stroke="#6f6248" stroke-width="3" stroke-linejoin="round">
+      <path d="M0 48 L70 0 L140 48Z" fill="#78684c"/>
+      <path d="M15 44 L70 10 L125 44Z" fill="#a18b62"/>
+      <rect x="22" y="45" width="96" height="78" fill="#d7c7a3"/>
+      <path d="M22 69 H118 M22 91 H118" stroke="#9d8a66"/>
+      <rect x="57" y="78" width="28" height="45" fill="#6d6a55"/>
+      <path d="M70 78 V123" stroke="#c6b58f"/>
+    </g>
+    <g transform="translate(790 180) scale(1.1)" stroke="#6f6248" stroke-width="3" stroke-linejoin="round">
+      <path d="M0 60 L90 0 L180 60Z" fill="#6d5b42"/>
+      <path d="M15 55 L90 8 L165 55Z" fill="#b09a6d"/>
+      <rect x="25" y="58" width="130" height="93" fill="#d9c8a5"/>
+      <path d="M25 84 H155 M25 110 H155" stroke="#9b8760"/>
+      <rect x="73" y="88" width="34" height="63" fill="#6d6a55"/>
+      <path d="M90 88 V151" stroke="#c6b58f"/>
+    </g>
+    <path d="M0 382 Q130 366 250 382 T500 378 T750 383 T1000 372 L1000 430 L0 430Z" fill="#fffdf7" opacity=".92"/>
+    <g fill="none" stroke="#b99449" stroke-width="2" opacity=".8"><path d="M36 30 Q60 8 84 30"/><path d="M48 44 Q60 30 72 44"/></g>
+  </svg>
+  <img class="hero-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Amaharashi%20Coast%2020190429.jpg?width=1600" alt="" referrerpolicy="no-referrer" onerror="this.nextElementSibling.remove();this.remove()"><div class="hero-veil"></div>
+  <div>
+    <p class="kicker" data-en="A little trip after the big day" data-ja="結婚式のあとに、みんなで小さな旅">A little trip after the big day</p>
+    <h1 data-en="A Taste of Japan<span>— HIMI TRIP —</span>" data-ja="氷見旅行<span>— A TASTE OF JAPAN —</span>">A Taste of Japan<span>— HIMI TRIP —</span></h1>
+    <p class="hero-sub" data-en="A slow, cozy getaway with mountains, hot springs, and the flavors of the sea." data-ja="結婚式のあと、みんなでゆっくり過ごす小さな旅。山と温泉、海の幸を楽しみましょう。">A slow, cozy getaway with mountains, hot springs, and the flavors of the sea.</p>
+  </div>
+  <div>
+    <div class="date-ribbon"><strong>11/23–24</strong> · Himi, Toyama</div>
+    <p class="update-note" data-en="Final schedule, exact times and meeting point will be updated here around Nov 10." data-ja="最終スケジュール（正確な時刻・集合場所）は11月10日ごろにこのページで更新します。">Final schedule, exact times and meeting point will be updated here around Nov 10.</p>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs" role="tablist" aria-label="Sections">
+  <button type="button" role="tab" data-tab="itinerary" data-en="🗺️ Itinerary" data-ja="🗺️ 行程">🗺️ Itinerary</button>
+  <button type="button" role="tab" data-tab="good-to-know" data-en="✦ Good to know" data-ja="✦ 知っておいてほしいこと">✦ Good to know</button>
+  <button type="button" role="tab" data-tab="cost" data-en="💴 Cost &amp; Packing" data-ja="💴 費用・持ち物">💴 Cost &amp; Packing</button>
+  <button type="button" role="tab" data-tab="luggage" class="english-only">🧳 Luggage</button>
+  <button type="button" role="tab" data-tab="contact" data-en="💬 Contact" data-ja="💬 連絡">💬 Contact</button>
+</nav>
+
+<div class="tab-panel" id="itinerary" role="tabpanel">
+<section class="day-one">
+  <div class="section-heading"><div class="day-number">01</div><div><h2 data-en="Mountains, Onsen & Seafood" data-ja="山・温泉・海の幸">Mountains, Onsen & Seafood</h2><p data-en="Monday, November 23 · Day 1" data-ja="11月23日（月・祝）・1日目">Monday, November 23 · Day 1</p></div></div>
+  <div class="day-banner"></div>
+  <div class="timeline">
+    <article class="stop"><div class="stop-main"><div class="emoji">🚌</div><div><span class="time" data-en="Around 8:00 AM" data-ja="8:00ごろ">Around 8:00 AM</span><h3 data-en="Meet & depart from Nagoya Station" data-ja="名古屋駅に集合・貸切バスで出発">Meet & depart from Nagoya Station</h3><p data-en="Meeting point to be announced. Get comfy—napping on the bus is absolutely fine!" data-ja="集合場所は後日案内します。バスでは寝ていてOK！">Meeting point to be announced. Get comfy—napping on the bus is absolutely fine!</p></div></div><div class="photo-slot"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Shogawa-gokuchi-821-r1.JPG?width=800" alt="Mountain valley along the Sho River" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"><div class="slot-inner"><span class="slot-icon">🚌 ⛰️</span><b data-en="Photo goes here" data-ja="ここに写真">Photo goes here</b><small data-en="Chartered bus / mountain drive" data-ja="貸切バス・山道のイメージ">Chartered bus / mountain drive</small></div></div></article>
+    <article class="stop"><div class="stop-main"><div class="emoji">🏡</div><div><span class="time" data-en="Midday" data-ja="お昼ごろ">Midday</span><h3 data-en="Ainokura, Gokayama" data-ja="五箇山・相倉（あいのくら）合掌造り集落">Ainokura, Gokayama</h3><p data-en="A UNESCO-listed village of thatched-roof farmhouses. Smaller and quieter than Shirakawa-go—perfect for a relaxed stroll." data-ja="世界遺産の茅葺き屋根の集落。白川郷より静かで、ゆっくり散策できます。">A UNESCO-listed village of thatched-roof farmhouses. Smaller and quieter than Shirakawa-go—perfect for a relaxed stroll.</p></div></div><div class="photo-slot"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ainokura%20%28World%20Heritage%20Site%29%2C%20Gokayama%2C%20Nanto%20City%2C%20Toyama%20Pref.jpg?width=800" alt="Thatched-roof houses in Ainokura" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"><div class="slot-inner"><span class="slot-icon">🏡 🌿</span><b data-en="Photo goes here" data-ja="ここに写真">Photo goes here</b><small data-en="Ainokura village" data-ja="相倉合掌造り集落">Ainokura village</small></div></div></article>
+    <article class="stop"><div class="stop-main"><div class="emoji">♨️</div><div><span class="time" data-en="Afternoon" data-ja="午後">Afternoon</span><h3 data-en="Kuroba Onsen" data-ja="くろば温泉">Kuroba Onsen</h3><p data-en="A hot spring tucked in the mountains. Tattoos are OK. Prefer not to bathe? Relax in the lounge—we’ll bring playing cards." data-ja="山あいの温泉。タトゥーOK。入浴しない人はラウンジで休憩できます（トランプを持っていきます）。">A hot spring tucked in the mountains. Tattoos are OK. Prefer not to bathe? Relax in the lounge—we’ll bring playing cards.</p></div></div><div class="photo-slot"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Takanoyu%20Onsen%20Rotenburo%20003.JPG?width=800" alt="Outdoor hot spring bath (image)" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"><div class="slot-inner"><span class="slot-icon">♨️ 🍃</span><b data-en="Photo goes here" data-ja="ここに写真">Photo goes here</b><small data-en="Kuroba Onsen" data-ja="くろば温泉">Kuroba Onsen</small></div></div></article>
+    <article class="stop"><div class="stop-main"><div class="emoji">🐟</div><div><span class="time" data-en="Evening" data-ja="夕方">Evening</span><h3 data-en="Toyama Bay seafood dinner" data-ja="富山湾の魚を楽しむ和食コース">Toyama Bay seafood dinner</h3><p data-en="A Japanese set-course dinner featuring fish from Toyama Bay. Drinks with dinner are included." data-ja="富山湾の魚を味わう和食コース。夕食時の飲み物も参加費に含まれます。">A Japanese set-course dinner featuring fish from Toyama Bay. Drinks with dinner are included.</p></div></div><div class="photo-slot"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Sashimi%20Moriawase.JPG?width=800" alt="Assorted sashimi (image)" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"><div class="slot-inner"><span class="slot-icon">🍣 🐟</span><b data-en="Photo goes here" data-ja="ここに写真">Photo goes here</b><small data-en="Local seafood" data-ja="富山湾の海の幸">Local seafood</small></div></div></article>
+    <article class="stop"><div class="stop-main"><div class="emoji">🏮</div><div><span class="time" data-en="Overnight" data-ja="宿泊">Overnight</span><h3 data-en="A whole traditional inn, just for us" data-ja="旧青柳旅館を全館貸切">A whole traditional inn, just for us</h3><p data-en="We’ll take over the charming old Aoyagi Ryokan in Himi. Bring your favorite drinks and snacks for a cozy evening together." data-ja="氷見の素朴な古い旅館「旧青柳旅館」を全館貸切。好きな飲み物を持ち寄って、みんなでのんびり過ごしましょう。">We’ll take over the charming old Aoyagi Ryokan in Himi. Bring your favorite drinks and snacks for a cozy evening together.</p></div></div><div class="photo-slot"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Futons%20in%20a%20Ryokan%20-%202.jpg?width=800" alt="Futons laid out in a Japanese inn (image)" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"><div class="slot-inner"><span class="slot-icon">🏮 🛏️</span><b data-en="Photo goes here" data-ja="ここに写真">Photo goes here</b><small data-en="Old Aoyagi Ryokan" data-ja="旧青柳旅館">Old Aoyagi Ryokan</small></div></div></article>
+  </div>
+</section>
+
+<section class="day-two">
+  <div class="section-heading"><div class="day-number">02</div><div><h2 data-en="Port Breakfast & Kanazawa" data-ja="漁港の朝ごはんと金沢の街並み">Port Breakfast & Kanazawa</h2><p data-en="Tuesday, November 24 · Day 2" data-ja="11月24日（火）・2日目">Tuesday, November 24 · Day 2</p></div></div>
+  <div class="day-banner"></div>
+  <div class="timeline">
+    <article class="stop"><div class="stop-main"><div class="emoji">🍣</div><div><span class="time" data-en="Early morning · Optional" data-ja="早朝・希望者のみ">Early morning · Optional</span><h3 data-en="Breakfast at Himi Fishing Port" data-ja="氷見漁港で朝ごはん（希望者のみ）">Breakfast at Himi Fishing Port</h3><p data-en="Fresh seafood breakfast for anyone who feels like joining. Pay individually." data-ja="希望者で氷見漁港の朝ごはんへ。食事代は各自払いです。">Fresh seafood breakfast for anyone who feels like joining. Pay individually.</p></div></div><div class="photo-slot"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Japanese%20Fish%20Market%20%28Unsplash%29.jpg?width=800" alt="Fresh fish at a Japanese market (image)" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"><div class="slot-inner"><span class="slot-icon">🍣 🌊</span><b data-en="Photo goes here" data-ja="ここに写真">Photo goes here</b><small data-en="Himi fishing port" data-ja="氷見漁港">Himi fishing port</small></div></div></article>
+    <article class="stop"><div class="stop-main"><div class="emoji">🍵</div><div><span class="time" data-en="Morning" data-ja="午前">Morning</span><h3 data-en="Free time in Higashi Chaya District" data-ja="金沢・ひがし茶屋街で自由行動">Free time in Higashi Chaya District</h3><p data-en="Wander through historic streets lined with teahouses, cafés and gold-leaf shops." data-ja="茶屋やカフェ、金箔のお店が並ぶ古い街並みを自由に散策します。">Wander through historic streets lined with teahouses, cafés and gold-leaf shops.</p></div></div><div class="photo-slot"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Higashi%20Chaya%20district%2C%20Kanazawa%20%283810720612%29.jpg?width=800" alt="Higashi Chaya District, Kanazawa" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"><div class="slot-inner"><span class="slot-icon">🏘️ 🍵</span><b data-en="Photo goes here" data-ja="ここに写真">Photo goes here</b><small data-en="Higashi Chaya District" data-ja="ひがし茶屋街">Higashi Chaya District</small></div></div></article>
+    <article class="stop"><div class="stop-main"><div class="emoji">✨</div><div><span class="time" data-en="Optional activity" data-ja="希望者のみ">Optional activity</span><h3 data-en="Make your own gold-leaf chopsticks" data-ja="金箔箸づくり（希望者のみ）">Make your own gold-leaf chopsticks</h3><p data-en="Try applying Kanazawa gold leaf to a pair of chopsticks and take your creation home. Details to come." data-ja="金箔を貼って自分のお箸を作る体験です。詳細は後日案内します。">Try applying Kanazawa gold leaf to a pair of chopsticks and take your creation home. Details to come.</p></div></div><div class="photo-slot"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kanazawa%20Gold%20Factory.jpg?width=800" alt="Kanazawa gold leaf" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"><div class="slot-inner"><span class="slot-icon">✨ 🥢</span><b data-en="Photo goes here" data-ja="ここに写真">Photo goes here</b><small data-en="Gold-leaf craft" data-ja="金箔箸づくり">Gold-leaf craft</small></div></div></article>
+    <article class="stop"><div class="stop-main"><div class="emoji">👋</div><div><span class="time" data-en="Around 1:00 PM" data-ja="13:00ごろ">Around 1:00 PM</span><h3 data-en="Finish at Kanazawa Station" data-ja="13:00ごろ金沢駅で解散">Finish at Kanazawa Station</h3><p data-en="Lunch ideas and onward travel options to Tokyo, Osaka, Nagoya and the airports will be shared later." data-ja="お昼のお店や、東京・大阪・名古屋・空港への帰り方は後日案内します。">Lunch ideas and onward travel options to Tokyo, Osaka, Nagoya and the airports will be shared later.</p></div></div><div class="photo-slot"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kanazawa-STA%20Tsuzumi-mon.jpg?width=800" alt="Tsuzumi-mon Gate, Kanazawa Station" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"><div class="slot-inner"><span class="slot-icon">🚉 🗾</span><b data-en="Photo goes here" data-ja="ここに写真">Photo goes here</b><small data-en="Kanazawa Station" data-ja="金沢駅">Kanazawa Station</small></div></div></article>
+  </div>
+</section>
+
+</div>
+
+<section class="tab-panel" id="good-to-know" role="tabpanel">
+  <div class="section-heading"><div class="day-number">✦</div><div><h2 data-en="Good to know" data-ja="先に知っておいてほしいこと">Good to know</h2><p data-en="A few things to make the trip comfortable for everyone." data-ja="みんなが快適に過ごすためのポイントです。">A few things to make the trip comfortable for everyone.</p></div></div>
+  <div class="info-grid">
+    <article class="info-card"><h3>🕗 <span data-en="Early starts & bus rides" data-ja="朝は早め・バス移動は長め">Early starts & bus rides</span></h3><ul><li data-en="Day 1: leave Nagoya around 8:00 AM." data-ja="1日目は名古屋駅を8:00ごろ出発。">Day 1: leave Nagoya around 8:00 AM.</li><li data-en="Day 2: leave the inn around 7:30 AM." data-ja="2日目は宿を7:30ごろ出発。">Day 2: leave the inn around 7:30 AM.</li><li data-en="Long rides ahead—sleep on the bus if you like." data-ja="バス移動が長いので、眠っていて大丈夫です。">Long rides ahead—sleep on the bus if you like.</li></ul></article>
+    <article class="info-card"><h3>🧣 <span data-en="Dress warmly" data-ja="防寒対策を">Dress warmly</span></h3><p data-en="Late November can be chilly; mountain areas may get close to 0°C. Bring a warm coat and comfortable walking shoes." data-ja="11月下旬は寒く、山あいでは0℃近くになることも。暖かい上着と歩きやすい靴を用意してください。">Late November can be chilly; mountain areas may get close to 0°C. Bring a warm coat and comfortable walking shoes.</p></article>
+    <article class="info-card"><h3>🏮 <span data-en="A simple, shared inn" data-ja="素朴な旅館での共同生活">A simple, shared inn</span></h3><ul><li data-en="This is a traditional, simple inn—not a hotel. Room sharing; room assignments to come." data-ja="ホテルではなく素朴な旅館です。相部屋で、部屋割りは後日案内します。">This is a traditional, simple inn—not a hotel. Room sharing; room assignments to come.</li><li data-en="The bath fits about 5–6 people at a time, so we’ll take turns. Towels and amenities are provided." data-ja="お風呂は一度に5〜6人なので順番に。タオル・アメニティあり。">The bath fits about 5–6 people at a time, so we’ll take turns. Towels and amenities are provided.</li><li data-en="Quiet hours: 11:00 PM–7:00 AM." data-ja="23:00〜7:00は静かに過ごしましょう。">Quiet hours: 11:00 PM–7:00 AM.</li></ul></article>
+    <article class="info-card"><h3>🥤 <span data-en="Drinks & snacks" data-ja="飲み物・おつまみ">Drinks & snacks</span></h3><p data-en="Bring your own drinks and snacks for the inn. We’ll stop at a supermarket on the way. Hiro & Sumika will bring a few bottles of sake." data-ja="宿で飲む飲み物・おつまみは各自で用意してください。途中でスーパーに寄ります。日本酒は二人が何本か用意します。">Bring your own drinks and snacks for the inn. We’ll stop at a supermarket on the way. Hiro & Sumika will bring a few bottles of sake.</p></article>
+  </div>
+  <p class="note" data-en="Timings may shift slightly depending on conditions." data-ja="当日の状況により時刻が少し変わることがあります。">Timings may shift slightly depending on conditions.</p>
+</section>
+
+<div class="tab-panel" id="cost" role="tabpanel">
+<section>
+  <div class="section-heading"><div class="day-number">¥</div><div><h2 data-en="Cost" data-ja="費用">Cost</h2><p data-en="Per person" data-ja="1人あたり">Per person</p></div></div>
+  <div class="info-grid">
+    <article class="info-card wide"><h3>💴 <span data-en="Trip fee" data-ja="参加費">Trip fee</span></h3><p style="font-size:1.35rem;font-weight:900;color:var(--green);margin:0 0 5px" data-en="To be confirmed" data-ja="調整中">To be confirmed</p><p data-en="The fee will be finalized once we’ve settled the details with the bus company. We’ll share the amount and payment method as soon as it’s set." data-ja="バス会社との調整が終わり次第確定します。金額と支払い方法は決まり次第お知らせします。">The fee will be finalized once we’ve settled the details with the bus company. We’ll share the amount and payment method as soon as it’s set.</p></article>
+    <article class="info-card"><h3>✓ <span data-en="Included" data-ja="参加費に含まれるもの">Included</span></h3><ul><li data-en="Chartered bus, tolls and parking" data-ja="貸切バス（高速代・駐車場代込み）">Chartered bus, tolls and parking</li><li data-en="Accommodation" data-ja="宿泊費">Accommodation</li><li data-en="Day 1 dinner, including drinks" data-ja="1日目の夕食（夕食時の飲み物込み）">Day 1 dinner, including drinks</li></ul></article>
+    <article class="info-card"><h3>👛 <span data-en="not included" data-ja="各自払い">not included</span></h3><ul><li data-en="All meals except Day 1 dinner" data-ja="1日目の夕食以外の食事">All meals except Day 1 dinner</li><li data-en="Onsen entry (approx. ¥500–600)" data-ja="温泉の入浴料（約500〜600円）">Onsen entry (approx. ¥500–600)</li><li data-en="Drinks/snacks at the inn" data-ja="宿で飲む飲み物・おつまみ">Drinks/snacks at the inn</li><li data-en="Transport from Kanazawa onward" data-ja="金沢からの交通費">Transport from Kanazawa onward</li></ul></article>
+  </div>
+</section>
+
+<section>
+  <div class="section-heading"><div class="day-number">🎒</div><div><h2 data-en="What to bring" data-ja="持ち物">What to bring</h2><p data-en="A small overnight bag is all you need." data-ja="1泊分の荷物で大丈夫です。">A small overnight bag is all you need.</p></div></div>
+  <div class="packing">
+    <div class="pack-item"><span>🧥</span><span data-en="Warm layers / coat" data-ja="防寒着・暖かい上着">Warm layers / coat</span></div>
+    <div class="pack-item"><span>👟</span><span data-en="Comfortable walking shoes" data-ja="歩きやすい靴">Comfortable walking shoes</span></div>
+    <div class="pack-item"><span>🧖</span><span data-en="Small towel for the onsen" data-ja="温泉用の小さめタオル">Small towel for the onsen</span></div>
+    <div class="pack-item"><span>💴</span><span data-en="Some Japanese yen in cash" data-ja="現金（日本円）">Some Japanese yen in cash</span></div>
+  </div>
+</section>
+
+</div>
+
+<section class="tab-panel english-only" id="luggage" role="tabpanel">
+  <div class="section-heading"><div class="day-number">🧳</div><div><h2>Leave your big suitcase in Tokyo</h2><p>For guests staying in Japan for a while</p></div></div>
+  <article class="info-card luggage">
+    <p>We can store your suitcase at our home in Tokyo so you don’t need to bring it on the trip.</p>
+    <ul>
+      <li><strong>Drop-off by:</strong> Thu, Nov 19</li>
+      <li><strong>Pick-up from:</strong> Wed, Nov 25 onward</li>
+      <li><strong>Limit:</strong> About 2 suitcases per person</li>
+    </ul>
+    <p>You can bring it with you or send it using an airport luggage delivery counter (Narita, Haneda, etc.). Delivery is usually around ¥2,000–3,000 per bag and takes 1–2 days.</p>
+    <p><strong>We’ll send our address privately to anyone who needs it.</strong> Please keep valuables, your passport and wedding clothes with you.</p>
+  </article>
+</section>
+
+<div class="tab-panel" id="contact" role="tabpanel">
+<section>
+  <div class="section-heading"><div class="day-number">💬</div><div><h2 data-en="Let’s stay in touch" data-ja="連絡はLINEグループで">Let’s stay in touch</h2><p data-en="Trip updates and last-minute details will be shared in our group." data-ja="旅行の更新情報や直前の案内はグループで共有します。">Trip updates and last-minute details will be shared in our group.</p></div></div>
+  <a class="cta" href="https://line.me/ti/g/ARnDMrbVQJ" target="_blank" rel="noopener noreferrer" data-en="Join our LINE group →" data-ja="LINEグループに参加する →">Join our LINE group →</a>
+  <article class="info-card english-only">
+    <h3>📱 Before you arrive in Japan</h3>
+    <p>Please install LINE and create your account <strong>using your home-country phone number before travelling to Japan</strong>. SMS verification may be required, and it’s easier to set it up before you arrive.</p>
+    <div class="store-links"><a href="https://apps.apple.com/app/line/id443904275" target="_blank" rel="noopener noreferrer">Download on App Store ↗</a><a href="https://play.google.com/store/apps/details?id=jp.naver.line.android" target="_blank" rel="noopener noreferrer">Get it on Google Play ↗</a></div>
+  </article>
+</section>
+
+<section>
+  <div class="section-heading"><div class="day-number">✉</div><div><h2 data-en="Quick favor" data-ja="お願い">Quick favor</h2><p data-en="Please send Hiro & Sumika a private LINE message or email—there’s no form on this page." data-ja="LINEの個別メッセージかメールで、二人に教えてください（このページに回答欄はありません）。">Please send Hiro & Sumika a private LINE message or email—there’s no form on this page.</p></div></div>
+  <article class="info-card">
+    <ol class="favor-list english-only">
+      <li>Your arrival in Japan: date, flight number, airport and arrival time.</li>
+      <li>Your departure from Japan: date, flight number and airport.</li>
+      <li>Your rough plans in Japan—especially where you’ll stay on the night of Nov 22 (staying in Nagoya is convenient for our early start) and your plans after we finish in Kanazawa on Nov 24.</li>
+      <li>Whether you’d like us to store your luggage: number/size of bags, drop-off date and method, and pick-up date.</li>
+    </ol>
+    <ol class="favor-list japanese-only" hidden>
+      <li>11月22日の夜の宿泊先（11月23日は早朝に名古屋駅集合なので、名古屋泊が便利です）。</li>
+      <li>11月24日の解散後の予定。</li>
+    </ol>
+  </article>
+</section>
+</div>
+
+<footer class="footer">
+  <svg class="footer-art" viewBox="0 0 1000 230" preserveAspectRatio="none" aria-hidden="true">
+    <rect width="1000" height="230" fill="#fffdf7"/>
+    <path d="M0 90 Q150 15 300 80 T600 72 T1000 65 L1000 230 L0 230Z" fill="#e6f0e4"/>
+    <path d="M0 125 Q150 70 330 120 T700 105 T1000 120 L1000 230 L0 230Z" fill="#dceff3"/>
+    <path d="M0 165 Q140 135 280 165 T560 160 T840 162 T1000 155" fill="none" stroke="#8ec6d4" stroke-width="3"/>
+    <g fill="#789563"><path d="M830 140 l25 -55 l25 55Z"/><path d="M870 150 l28 -65 l28 65Z"/><path d="M910 145 l23 -50 l23 50Z"/></g>
+  </svg>
+  <p class="footer-quote" data-en="We can't wait to spend a slow, cozy night together after the big day!" data-ja="式のあと、みんなでゆっくり過ごせるのを楽しみにしています！">We can't wait to spend a slow, cozy night together after the big day!</p>
+  <div class="footer-names">HIRO & SUMIKA</div>
+  <p class="updated">Last updated: 2026-10-28</p>
+  <p class="credits">Photos: Wikimedia Commons (<a href="https://commons.wikimedia.org/wiki/File:Amaharashi%20Coast%2020190429.jpg" target="_blank" rel="noopener">1</a> · <a href="https://commons.wikimedia.org/wiki/File:Shogawa-gokuchi-821-r1.JPG" target="_blank" rel="noopener">2</a> · <a href="https://commons.wikimedia.org/wiki/File:Ainokura%20%28World%20Heritage%20Site%29%2C%20Gokayama%2C%20Nanto%20City%2C%20Toyama%20Pref.jpg" target="_blank" rel="noopener">3</a> · <a href="https://commons.wikimedia.org/wiki/File:Takanoyu%20Onsen%20Rotenburo%20003.JPG" target="_blank" rel="noopener">4</a> · <a href="https://commons.wikimedia.org/wiki/File:Sashimi%20Moriawase.JPG" target="_blank" rel="noopener">5</a> · <a href="https://commons.wikimedia.org/wiki/File:Futons%20in%20a%20Ryokan%20-%202.jpg" target="_blank" rel="noopener">6</a> · <a href="https://commons.wikimedia.org/wiki/File:Japanese%20Fish%20Market%20%28Unsplash%29.jpg" target="_blank" rel="noopener">7</a> · <a href="https://commons.wikimedia.org/wiki/File:Higashi%20Chaya%20district%2C%20Kanazawa%20%283810720612%29.jpg" target="_blank" rel="noopener">8</a> · <a href="https://commons.wikimedia.org/wiki/File:Kanazawa%20Gold%20Factory.jpg" target="_blank" rel="noopener">9</a> · <a href="https://commons.wikimedia.org/wiki/File:Kanazawa-STA%20Tsuzumi-mon.jpg" target="_blank" rel="noopener">10</a>). Some photos are for illustration only.</p>
+</footer>
+</main>
+<script>
+(function(){
+  const tabs=document.getElementById('tabs'), langbar=document.querySelector('.langbar');
+  const tabIds=[...tabs.querySelectorAll('button')].map(b=>b.dataset.tab);
+  let current='itinerary';
+  function fitTabs(){tabs.style.top=langbar.offsetHeight+'px';}
+  function showTab(id,scroll){
+    if(!tabIds.includes(id)||(id==='luggage'&&document.documentElement.lang!=='en'))id='itinerary';
+    current=id;
+    document.querySelectorAll('.tab-panel').forEach(p=>p.classList.toggle('active',p.id===id));
+    tabs.querySelectorAll('button').forEach(b=>{const on=b.dataset.tab===id;b.classList.toggle('active',on);b.setAttribute('aria-selected',String(on));});
+    if(history.replaceState)history.replaceState(null,'','#'+id);
+    if(scroll){const y=tabs.getBoundingClientRect().top+window.scrollY-langbar.offsetHeight;if(window.scrollY>y)window.scrollTo({top:y});}
+  }
+  tabs.addEventListener('click',e=>{const b=e.target.closest('button[data-tab]');if(b){showTab(b.dataset.tab,true);b.scrollIntoView({block:'nearest',inline:'nearest'});}});
+  window.addEventListener('resize',fitTabs);
+  const enBtn=document.getElementById('enBtn'), jaBtn=document.getElementById('jaBtn');
+  function setLang(lang){
+    document.documentElement.lang=lang;
+    document.querySelectorAll('[data-en][data-ja]').forEach(el=>{
+      el.innerHTML=el.getAttribute('data-'+lang);
+    });
+    document.querySelectorAll('.english-only').forEach(el=>{el.hidden=lang!=='en';});
+    document.querySelectorAll('.japanese-only').forEach(el=>{el.hidden=lang!=='ja';});
+    enBtn.classList.toggle('active',lang==='en'); jaBtn.classList.toggle('active',lang==='ja');
+    enBtn.setAttribute('aria-pressed',String(lang==='en')); jaBtn.setAttribute('aria-pressed',String(lang==='ja'));
+    showTab(current,false);
+    document.title=lang==='en'?'A Taste of Japan — Himi Trip | Hiro & Sumika':'氷見旅行 | Hiro & Sumika';
+  }
+  enBtn.addEventListener('click',()=>setLang('en'));
+  jaBtn.addEventListener('click',()=>setLang('ja'));
+  fitTabs();
+  current=(location.hash||'').slice(1)||'itinerary';
+  setLang('en');
+})();
+</script>
+</body>
+</html>
