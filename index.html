@@ -88,6 +88,7 @@ h1 span{display:block;font-family:ui-sans-serif,system-ui,sans-serif;font-size:.
 .note{font-size:.82rem;color:var(--muted)}
 [hidden]{display:none!important}
 .topbar{position:sticky;top:0;z-index:10;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px 10px;padding:9px max(12px,calc((100% - 1000px)/2));background:rgba(255,253,247,.96);backdrop-filter:blur(8px);border-bottom:1px solid #e8e6dc}
+.langrow{display:flex;justify-content:flex-end;padding:10px max(16px,calc((100% - 1000px)/2)) 0}
 .lang{display:inline-flex;flex:0 0 auto;border:1px solid #b7c6c4;border-radius:999px;overflow:hidden}
 .lang button{border:0;background:transparent;color:var(--navy);padding:6px 11px;font-size:.82rem;font-weight:750;cursor:pointer}
 .lang button.active{background:var(--navy);color:#fff}
@@ -96,7 +97,7 @@ h1 span{display:block;font-family:ui-sans-serif,system-ui,sans-serif;font-size:.
 .tabs button{flex:0 0 auto;border:1px solid #d4dccf;border-radius:999px;background:#fffefa;color:var(--navy);padding:8px 14px;font-size:.9rem;font-weight:750;cursor:pointer;white-space:nowrap}
 .tabs button.active{background:var(--green);border-color:var(--green);color:#fff}
 .tab-panel{display:none;scroll-margin-top:160px}
-@media(max-width:600px){.topbar{flex-wrap:nowrap;justify-content:flex-start;gap:8px;padding:8px 0 8px 12px}.tabs{flex:1 1 auto;min-width:0;flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scrollbar-width:none;gap:5px;-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent)}.tabs button{padding:6px 11px;font-size:.84rem}.lang{margin-right:12px}.lang button{padding:6px 9px}}
+@media(max-width:600px){.topbar{flex-wrap:nowrap;justify-content:flex-start;gap:8px;padding:8px 12px}.tabs{flex:1 1 auto;min-width:0;flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scrollbar-width:none;gap:5px;-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent)}.tabs button{padding:6px 11px;font-size:.84rem}}
 .tab-panel.active{display:block}
 @media(min-width:700px){
  .poster{padding:0 34px 45px}
@@ -125,7 +126,7 @@ h1 span{display:block;font-family:ui-sans-serif,system-ui,sans-serif;font-size:.
 @media print{
  @page{size:A4;margin:12mm}
  body{background:white!important;color:#1c2d35;-webkit-print-color-adjust:exact;print-color-adjust:exact}
- .topbar{display:none!important}
+ .topbar,.langrow{display:none!important}
  .tab-panel{display:block!important}
  .poster{max-width:none;padding:0}
  .hero{min-height:270px;padding:20px 18px}
@@ -141,6 +142,12 @@ h1 span{display:block;font-family:ui-sans-serif,system-ui,sans-serif;font-size:.
 </style>
 </head>
 <body>
+<div class="langrow">
+<div class="lang" role="group" aria-label="Language">
+  <button id="enBtn" class="active" type="button" aria-pressed="true">EN</button>
+  <button id="jaBtn" type="button" aria-pressed="false">日本語</button>
+</div>
+</div>
 <div class="topbar">
 <nav class="tabs" id="tabs" role="tablist" aria-label="Sections">
   <button type="button" role="tab" data-tab="itinerary" data-en="🗺️ Itinerary" data-ja="🗺️ 行程">🗺️ Itinerary</button>
@@ -149,10 +156,6 @@ h1 span{display:block;font-family:ui-sans-serif,system-ui,sans-serif;font-size:.
   <button type="button" role="tab" data-tab="luggage" class="english-only">🧳 Luggage</button>
   <button type="button" role="tab" data-tab="contact" data-en="💬 Contact" data-ja="💬 連絡">💬 Contact</button>
 </nav>
-<div class="lang" role="group" aria-label="Language">
-  <button id="enBtn" class="active" type="button" aria-pressed="true">EN</button>
-  <button id="jaBtn" type="button" aria-pressed="false">日本語</button>
-</div>
 </div>
 <main class="poster">
 <header class="hero">
@@ -326,7 +329,7 @@ h1 span{display:block;font-family:ui-sans-serif,system-ui,sans-serif;font-size:.
     current=id;
     document.querySelectorAll('.tab-panel').forEach(p=>p.classList.toggle('active',p.id===id));
     tabs.querySelectorAll('button').forEach(b=>{const on=b.dataset.tab===id;b.classList.toggle('active',on);b.setAttribute('aria-selected',String(on));});
-    if(history.replaceState)history.replaceState(null,'','#'+id);
+    if(scroll&&history.replaceState)history.replaceState(null,'','#'+id);
     if(scroll){const y=document.getElementById(id).getBoundingClientRect().top+window.scrollY-topbar.offsetHeight-12;if(window.scrollY>y)window.scrollTo({top:y});}
   }
   tabs.addEventListener('click',e=>{const b=e.target.closest('button[data-tab]');if(b){showTab(b.dataset.tab,true);b.scrollIntoView({block:'nearest',inline:'nearest'});}});
